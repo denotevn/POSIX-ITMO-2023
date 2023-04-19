@@ -2,8 +2,8 @@
 #include <ciso646>
 #include <iostream>
 #include <string>
-#include "POSIX-assignment/producer_consumer.cpp"
-#include "POSIX-assignment/producer_consumer.h"
+#include "./POSIX-assignment/producer_consumer.cpp"
+#include "./POSIX-assignment/producer_consumer.h"
 #include "doctest.h"
 
 #define SUCCESS 0
