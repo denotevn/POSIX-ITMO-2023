@@ -1,9 +1,4 @@
 # Assignment **POSIX**
-+ [Thread](http://ccfit.nsu.ru/arom/data/PP_ICaG/03_pthreads_ru.pdf)
-+ [Multithreaded Programming in C++ POSIX](https://www.bogotobogo.com/cplusplus/multithreading_pthread.php)
-+ [Conditional variables](https://codecungnhau.com/c11-multi-threading-p-7-su-dung-bien-dieu-kien-de-xu-ly-su-kien/)
-+ [Mastering Multithreading with C++ – POSIX Threads](https://www.youtube.com/watch?v=QMNtAFZtFMA&ab_channel=Packt)
-
 The task is to implement the classic **producer-consumer** pattern with a few additional conditions. The program should consist of 3 + *N* threads:
  1. **main** 
  2. **producer** 

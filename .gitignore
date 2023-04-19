@@ -7,3 +7,4 @@ tests/doctest.h
 *.out
 .vscode
 main
+Note
