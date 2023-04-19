@@ -1,5 +1,4 @@
 #include "producer_consumer.h"
-
 #include<string>
 #include<pthread.h>
 #include<semaphore.h>
@@ -10,13 +9,12 @@
 #include <memory>
 #include <sstream>
 
-pthread_cond_t consumer_cond = PTHREAD_COND_INITIALIZER;
-pthread_cond_t producer_cond = PTHREAD_COND_INITIALIZER;
-pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-
 
 using namespace std;
 
+pthread_cond_t consumer_cond = PTHREAD_COND_INITIALIZER;
+pthread_cond_t producer_cond = PTHREAD_COND_INITIALIZER;
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 int get_tid(int id) {
   // 1 to 3+N thread ID
   static thread_local shared_ptr<int> tid(new int);
@@ -40,9 +38,9 @@ void* producer_routine(void* arg) {
   }
   pthread_mutex_unlock(&mutex);
   // Read data, loop through each value and update the value, notify consumer, wait for consumer to process
-  std::string numbers_raw;
-  std::getline(std::cin, numbers_raw);
-  std::istringstream in(numbers_raw, std::istringstream::in);
+  string numbers_raw;
+  getline(cin, numbers_raw);
+  istringstream in(numbers_raw, istringstream::in);
   int number;
 
   while(in >> number)
@@ -50,7 +48,7 @@ void* producer_routine(void* arg) {
     pthread_mutex_lock(&mutex);
     *args->number_ptr = number;
     *args->new_number = true;
-    pthread_cond_signal(&consumer_cond);
+    pthread_cond_signal(&producer_cond); /// doan nay nay ghi la consumer_cond
     while(*args->new_number)
     {
       pthread_cond_wait(&consumer_cond, &mutex);
@@ -190,6 +188,7 @@ int run_threads(int N, int ms, bool debug) {
   i_args.consumers = consumers;
   i_args.n = N;
   i_args.completed = &completed;
+  i_args.consumer_started = &consumer_started;
   i_args.consumer_started = &consumer_started;
   status = pthread_create(&interrupter, NULL, consumer_interrupter_routine, (void*) &i_args);
   if (status != 0) {
