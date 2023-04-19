@@ -4,5 +4,6 @@ Makefile
 tests/doctest.h
 .clang-format
 .gitlab-ci.yml
-/.out
+*.out
 .vscode
+main
