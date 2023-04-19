@@ -35,7 +35,7 @@ void* producer_routine(void* arg) {
     pthread_mutex_lock(&my_mutex);
     *args->number_ptr = number;
     *args->new_number = true;
-    pthread_cond_signal(&producer_cond);  /// doan nay nay ghi la consumer_cond
+    pthread_cond_signal(&producer_cond);  
     while (*args->new_number) {
       pthread_cond_wait(&consumer_cond, &my_mutex);
     }
