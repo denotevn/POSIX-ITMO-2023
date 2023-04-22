@@ -3,8 +3,8 @@
 #include <ciso646>
 #include <iostream>
 #include <string>
-#include "doctest.h"
 #include "/home/tuandinh/Desktop/POSIX-assignment/producer_consumer.h"
+#include "doctest.h"
 
 #define SUCCESS 0
 
