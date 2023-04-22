@@ -1,10 +1,9 @@
 #include "producer_consumer.h"
 
-using namespace std;
 
-pthread_cond_t consumer_cond = PTHREAD_COND_INITIALIZER;
-pthread_cond_t producer_cond = PTHREAD_COND_INITIALIZER;
-pthread_mutex_t my_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t consumer_cond ;
+pthread_cond_t producer_cond ;
+pthread_mutex_t my_mutex;
 
 int get_tid(int id) {
   // 1 to 3+N thread ID
@@ -19,7 +18,6 @@ void* producer_routine(void* arg) {
   // wait for consumer to process
   producer_args* args = (producer_args*)arg;
   get_tid(2);
-
   pthread_mutex_lock(&my_mutex);
   while (!*args->consumer_started) {
     pthread_cond_wait(&consumer_cond, &my_mutex);
@@ -55,7 +53,7 @@ void* consumer_routine(void* arg) {
   pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
   consumer_args* args = (consumer_args*)arg;
   get_tid(args->tid);
-
+  
   pthread_mutex_lock(&my_mutex);
   if (*args->consumer_started == false) {
     *args->consumer_started = true;

@@ -14,6 +14,8 @@
 #include <sstream>
 #include <string>
 
+using namespace std;
+
 typedef struct producer_args_tag {
   int *number_ptr;
   int n;
