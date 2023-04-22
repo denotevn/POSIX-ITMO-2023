@@ -3,7 +3,7 @@
 #include <ciso646>
 #include <iostream>
 #include <string>
-#include "./POSIX-assignment/producer_consumer.h"
+#include "producer_consumer.h"
 #include "doctest.h"
 
 #define SUCCESS 0
@@ -31,4 +31,3 @@ TEST_CASE("Test run_threads with N = 10, ms = 1000, debug = false") {
   int res = run_threads(N, ms, debug);
   CHECK(res == SUCCESS);
 }
-

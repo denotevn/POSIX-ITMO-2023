@@ -1,8 +1,7 @@
 #include "producer_consumer.h"
 
-
-pthread_cond_t consumer_cond ;
-pthread_cond_t producer_cond ;
+pthread_cond_t consumer_cond;
+pthread_cond_t producer_cond;
 pthread_mutex_t my_mutex;
 
 int get_tid(int id) {
@@ -53,7 +52,7 @@ void* consumer_routine(void* arg) {
   pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
   consumer_args* args = (consumer_args*)arg;
   get_tid(args->tid);
-  
+
   pthread_mutex_lock(&my_mutex);
   if (*args->consumer_started == false) {
     *args->consumer_started = true;
