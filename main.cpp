@@ -10,8 +10,7 @@ int main(int argc, char* argv[]) {
 
     stringstream n_stream(argv[1]);
     n_stream >> N;
-    if (N == 0)
-    {
+    if (N == 0) {
       N = 1;
     }
     stringstream ms_stream(argv[2]);
