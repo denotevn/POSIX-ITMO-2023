@@ -180,8 +180,8 @@ int run_threads(int N, int ms, bool debug) {
     amount += c_args[i].psum;
   }
   // free alocated
-  delete[] consumers;
-  delete[] c_args;
+  // delete[] consumers;
+  // delete[] c_args;
   pthread_mutex_destroy(&my_mutex);
   pthread_cond_destroy(&producer_cond);
   pthread_cond_destroy(&consumer_cond);

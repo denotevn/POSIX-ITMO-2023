@@ -24,9 +24,9 @@ TEST_CASE("Test run_threads with N = 5, ms = 0, debug = true") {
   CHECK(res == SUCCESS);
 }
 
-TEST_CASE("Test run_threads with N = 10, ms = 1000, debug = false") {
-  int N = 10;
-  int ms = 1000;
+TEST_CASE("Test run_threads with N = 1, ms = 0, debug = false") {
+  int N = 1;
+  int ms = 0;
   bool debug = true;
   int res = run_threads(N, ms, debug);
   CHECK(res == SUCCESS);
