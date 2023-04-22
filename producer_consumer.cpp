@@ -5,6 +5,7 @@ using namespace std;
 pthread_cond_t consumer_cond = PTHREAD_COND_INITIALIZER;
 pthread_cond_t producer_cond = PTHREAD_COND_INITIALIZER;
 pthread_mutex_t my_mutex = PTHREAD_MUTEX_INITIALIZER;
+
 int get_tid(int id) {
   // 1 to 3+N thread ID
   static thread_local shared_ptr<int> tid(new int);
@@ -35,7 +36,7 @@ void* producer_routine(void* arg) {
     pthread_mutex_lock(&my_mutex);
     *args->number_ptr = number;
     *args->new_number = true;
-    pthread_cond_signal(&producer_cond);  
+    pthread_cond_signal(&producer_cond);
     while (*args->new_number) {
       pthread_cond_wait(&consumer_cond, &my_mutex);
     }
@@ -187,7 +188,7 @@ int run_threads(int N, int ms, bool debug) {
   pthread_mutex_destroy(&my_mutex);
   pthread_cond_destroy(&producer_cond);
   pthread_cond_destroy(&consumer_cond);
-  // return aggregated sum of values
 
+  // return aggregated sum of values
   return amount;
 }
