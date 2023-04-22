@@ -1,8 +1,10 @@
-#include <cstring>
+// #include <cstring>
 #include <iostream>
 #include <sstream>
 #include "producer_consumer.cpp"
 #include "producer_consumer.h"
+
+using namespace std;
 
 int main(int argc, char* argv[]) {
   if (argc >= 3) {

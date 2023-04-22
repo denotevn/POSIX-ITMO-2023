@@ -12,6 +12,7 @@
 #include <memory>
 #include <sstream>
 #include <string>
+#include <cstring>
 
 typedef struct producer_args_tag {
   int *number_ptr;
