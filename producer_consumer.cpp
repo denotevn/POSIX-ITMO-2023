@@ -174,7 +174,7 @@ int run_threads(int N, int ms, bool debug) {
   // return aggregated sum of values
   for (int i = 0; i < N; i++) {
     status = pthread_join(consumers[i], (void**)&consumers_result);
-    cout << "Thread: " << i << endl;
+    // cout << "Thread: " << i << endl;
     if (status != 0) {
       printf("error: can't join consumers[%d] thread, status = %d\n", i,
              status);
