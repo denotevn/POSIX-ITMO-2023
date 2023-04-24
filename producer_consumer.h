@@ -43,7 +43,7 @@ typedef struct interrupter_args_tag {
 } interrupter_args;
 
 // the declaration of run threads can be changed as you like
-int run_threads(int N, int ms, bool debug);
+int run_threads(unsigned short N, unsigned short ms, bool debug);
 void *producer_routine(void *arg);
 void *consumer_routine(void *arg);
 void *consumer_interrupter_routine(void *arg);

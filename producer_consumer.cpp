@@ -110,7 +110,7 @@ void* consumer_interrupter_routine(void* arg) {
 }
 
 // the declaration of run threads can be changed as you like
-int run_threads(int N, int ms, bool debug) {
+int run_threads(unsigned short N, unsigned short ms, bool debug) {
   // start N threads and wait until they're done
   int number;
   bool completed = false;
