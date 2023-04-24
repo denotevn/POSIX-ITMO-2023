@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
     stringstream ms_stream(argv[2]);
     ms_stream >> ms;
 
-    if (argc > 3 && strcmp(argv[3], "-debug") == 0) {
+    if (argc == 4 && strcmp(argv[3], "-debug") == 0) {
       debug = true;
     }
     int res = run_threads(N, ms, debug);
