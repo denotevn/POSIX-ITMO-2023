@@ -7,5 +7,5 @@ tests/doctest.h
 *.out
 .vscode
 main
-Note
+Note.md
 samples/
